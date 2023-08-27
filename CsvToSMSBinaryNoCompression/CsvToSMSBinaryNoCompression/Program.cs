@@ -17,10 +17,16 @@ class Program
     static void Main(string[] args)
     {
         string fileName = INPUT_FILE;
-        if (args.Length > 0)
+        if (args.Length >= 1)
         {
             string[] pathName = args[0].Split('\\');
             fileName = pathName[pathName.Length - 1];
+        }
+
+        int byteNum = 1;
+        if (args.Length >= 2)
+        {
+            byteNum = Int32.Parse(args[1]);
         }
 
         // ファイルサイズの取得
@@ -73,7 +79,14 @@ class Program
             {
                 for (int i = 0; i < index; i++)
                 {
-                    writer.Write((byte)(ints[i]));
+                    if (byteNum == 1)
+                    {
+                        writer.Write((byte)(ints[i]));
+                    }
+                    else if (byteNum==2) {
+                        writer.Write((byte)(ints[i]%256));
+                        writer.Write((byte)(ints[i]/256));
+                    }
                 }
             }
         }

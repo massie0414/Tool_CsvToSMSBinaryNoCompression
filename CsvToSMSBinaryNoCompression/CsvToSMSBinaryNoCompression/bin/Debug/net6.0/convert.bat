@@ -1,2 +1,0 @@
-CsvToSMSBinaryNoCompression.exe convert.csv
-CsvToSMSBinaryNoCompression.exe convert2.csv
